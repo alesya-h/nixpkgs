@@ -57,6 +57,7 @@ stdenv.mkDerivation rec {
     libxcb
     libXcursor
     libX11
+    libXext 
     libXtst
     libxkbcommon
     pipewire
