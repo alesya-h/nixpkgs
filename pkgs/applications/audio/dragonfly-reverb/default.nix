@@ -26,9 +26,11 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin
     mkdir -p $out/lib/lv2/
     mkdir -p $out/lib/vst/
+    mkdir -p $out/lib/clap/
     cd bin
     for bin in DragonflyEarlyReflections DragonflyPlateReverb DragonflyHallReverb DragonflyRoomReverb; do
       cp -a $bin        $out/bin/
+      cp -a $bin.clap   $out/lib/clap/
       cp -a $bin-vst.so $out/lib/vst/
       cp -a $bin.lv2/   $out/lib/lv2/ ;
     done
