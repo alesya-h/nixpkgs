@@ -4,6 +4,7 @@
 , cairo
 , dpkg
 , ffmpeg
+, curlWithGnuTls
 , freetype
 , gdk-pixbuf
 , glib
@@ -44,6 +45,7 @@ stdenv.mkDerivation rec {
   buildInputs = with xorg; [
     alsa-lib
     cairo
+    curlWithGnuTls
     freetype
     gdk-pixbuf
     glib
