@@ -12,6 +12,7 @@
 , vlc
 , xdg-utils
 , xdotool
+, xorg
 , which
 
 , jackSupport ? true
@@ -73,7 +74,7 @@ stdenv.mkDerivation rec {
     # We opt for wrapping the executable with LD_LIBRARY_PATH prefix.
     # Note that libcurl and libxml2 are needed for ReaPack to run.
     wrapProgram $out/opt/REAPER/reaper \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ curl lame libxml2 ffmpeg vlc xdotool stdenv.cc.cc.lib ]}"
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ curl lame libxml2 ffmpeg vlc xdotool xorg.libXtst stdenv.cc.cc.lib ]}"
 
     mkdir $out/bin
     ln -s $out/opt/REAPER/reaper $out/bin/
