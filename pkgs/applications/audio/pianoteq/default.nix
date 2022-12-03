@@ -29,7 +29,7 @@ let
         mkdir -p $out/bin
         mv -t $out/bin Pianoteq*/${archdir}/*
         for f in $out/bin/Pianoteq*; do
-          if [ -x "$f" ] && [ -f "$f" ]; then
+          if [ -x "$f" ] && [ -f "$f" ] && [[ ! "$f" =~ ".so" ]] ; then
             wrapProgram "$f" --prefix LD_LIBRARY_PATH : ${
               lib.makeLibraryPath (buildInputs ++ [
                 xorg.libXcursor
